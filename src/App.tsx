@@ -1,10 +1,12 @@
+import React from 'react';
 import { useContext } from 'react';
 import { createAppRouter } from './router';
 import { RouterProvider } from 'react-router-dom';
 
 import './App.css';
 import './index.css';
-import { IsConnectedContext, IsConnectedProvider } from './context/context';
+import { TodoProvider } from './context/TodoContext';
+import { IsConnectedContext, IsConnectedProvider } from './context/IsConnectedContext';
 
 function AppContent() {
   const { isConnected } = useContext(IsConnectedContext);
@@ -16,7 +18,9 @@ function AppContent() {
 function App() {
   return (
     <IsConnectedProvider>
-      <AppContent />
+      <TodoProvider>
+        <AppContent />
+      </TodoProvider>
     </IsConnectedProvider>
   );
 }

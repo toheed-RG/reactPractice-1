@@ -1,11 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import Todo from '../atoms/Todo';
+import { TodoContext } from '../context/TodoContext';
 
 const Home = () => {
-  const [todos, setTodos] = React.useState([
-    { id: 1, title: 'Learn React', desc: 'Study the basics of React' },
-    { id: 2, title: 'Build a Todo App', desc: 'Create a simple todo application' }
-  ]);
+  const { todos, setTodos } = useContext(TodoContext);
 
   function clearTodos() {
     setTodos([]);

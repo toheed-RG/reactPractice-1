@@ -3,14 +3,9 @@ import React from 'react'
 const Todo = ({ todo }) => {
     return (
         <>
-            <div style={{ border: '1px solid black', padding: '10px', margin: '10px' }}>
-                <div className="todo">
-                    {todo.title}
-                </div>
-                <div className="todo">
-                    {todo.desc}
-                </div>
-
+            <div style={{ border: '1px solid black', backgroundColor: 'snow', paddingTop: '5px', paddingBottom: '5px', margin: '10px' }}>
+                <h3>{todo.title}</h3>
+                <p>{todo.desc}</p>
             </div >
         </>
     )

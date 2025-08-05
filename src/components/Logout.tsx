@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { IsConnectedContext } from '../context/context';
+import { IsConnectedContext } from '../context/IsConnectedContext';
 
 const Logout = () => {
     const { isConnected, setIsConnected } = useContext(IsConnectedContext);

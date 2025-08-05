@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IsConnectedContext } from '../context/context';
+
 import ROUTES from '../constants/lib/routes';
+import { IsConnectedContext } from '../context/IsConnectedContext';
 
 export function Navbar() {
   const { isConnected, setIsConnected } = useContext(IsConnectedContext);

@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import ROUTES from '../constants/lib/routes';
-import { IsConnectedContext } from '../context/context';
+import { IsConnectedContext } from '../context/IsConnectedContext';
 
 const Login = () => {
     const [username, setUsername] = useState('user');

@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router";
 
 import ROUTES from "../constants/lib/routes";
-import { IsConnectedContext } from "../context/context";
 import '../assets/stylesheets/atoms/Navbar.css';
-
+import { IsConnectedContext } from "../context/IsConnectedContext";
 
 export function Navbar() {
   const navigate = useNavigate();
