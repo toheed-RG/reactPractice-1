@@ -2,7 +2,7 @@ import React from 'react';
 import { Suspense } from 'react';
 
 import Loading from '../atoms/Loading';
-import TodoMolecule from '../molecules/TodoMolecule';
+const TodoMolecule = React.lazy(() => import('../molecules/TodoMolecule'));
 import AddNewTodoItem from '../atoms/Todo/AddNewTodoItem';
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       <AddNewTodoItem />
       <h1>Todo List</h1>
-      <Suspense fallback={<div><Loading /></div>}>
+      <Suspense fallback={<div><Loading text='Loading Todo ...' /></div>}>
         <TodoMolecule />
       </Suspense>
     </div>

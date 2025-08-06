@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 
 import Todo from '../atoms/Todo';
+import Loading from '../atoms/Loading';
 import { fetchTodos } from '../store/thunks/todo';
 import { AppDispatch, RootState } from '../store';
 import { clearTodos, } from '../store/slices/todo';
@@ -24,8 +25,9 @@ const TodoMolecule = () => {
     }, [status, dispatch]);
 
     if (status === 'loading') {
-        return new Promise(() => { });
+        return <Loading text='Fetching Todos ... ' />;
     }
+
     return (
         <>
             {status === 'succeeded' && todos.map(todo => { return <Todo key={todo.id} todo={todo} /> })}
@@ -42,4 +44,4 @@ const TodoMolecule = () => {
     )
 }
 
-export default TodoMolecule
+export default TodoMolecule;

@@ -1,11 +1,22 @@
 import React from 'react'
 import { Loader } from '@aws-amplify/ui-react';
 
-const Loading = () => {
+interface Props {
+    text: string;
+}
+
+const Loading = (props: Props) => {
     return (
-        <Loader style={{
-            width: "5rem", height: "5rem"
-        }} size="large" />
+        <>
+            <div>
+                <Loader style={{
+                    width: "5rem", height: "5rem"
+                }} size="large" />
+            </div>
+            <div>
+                <span>{props.text}</span>
+            </div>
+        </>
     );
 }
 
