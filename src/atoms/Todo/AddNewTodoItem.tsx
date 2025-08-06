@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { Button, Input } from '@aws-amplify/ui-react';
 
 import { addTodo } from '../../store/slices/todo';
 
@@ -21,19 +22,21 @@ const AddNewTodoItem = () => {
         <>
             <h1>Add a NEW Todo Item</h1>
             <form onSubmit={handleAddTodo}>
-                <input
+                <Input variation='quiet'
                     type="text"
                     placeholder="Todo Title"
                     value={newTodo.title}
+                    className='input-field'
                     onChange={(e) => setNewTodo({ ...newTodo, title: e.target.value })}
                 />
-                <input
+                <Input variation='quiet'
                     type="text"
+                    className='input-field'
                     placeholder="Todo Description"
                     value={newTodo.desc}
                     onChange={(e) => setNewTodo({ ...newTodo, desc: e.target.value })}
                 />
-                <button type="submit">Add Todo</button>
+                <Button variation='primary' type="submit">Add Todo</Button>
             </form>
         </>
     )

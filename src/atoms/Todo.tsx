@@ -6,7 +6,7 @@ const Todo = ({ todo }) => {
         <>
             <Card variation="elevated" style={{ margin: '1rem 0' }}>
                 <Text>
-                    {todo.title}
+                    <strong>{todo.title}</strong> - {todo.desc}
                 </Text>
             </Card>
         </>
