@@ -1,12 +1,14 @@
 import React from 'react'
+import { Card, Text } from '@aws-amplify/ui-react'
 
 const Todo = ({ todo }) => {
     return (
         <>
-            <div style={{ border: '1px solid black', backgroundColor: 'snow', paddingTop: '5px', paddingBottom: '5px', margin: '10px' }}>
-                <h3>{todo.title}</h3>
-                <p>{todo.desc}</p>
-            </div >
+            <Card variation="elevated" style={{ margin: '1rem 0' }}>
+                <Text>
+                    {todo.title}
+                </Text>
+            </Card>
         </>
     )
 }

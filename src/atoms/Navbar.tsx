@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router";
+import { Button } from "@aws-amplify/ui-react";
 
 import ROUTES from "../constants/lib/routes";
 import '../assets/stylesheets/atoms/Navbar.css';
@@ -19,13 +20,13 @@ export function Navbar() {
     <>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div >
-          <button className="button" onClick={() => navigate(ROUTES.HOME)} >Home</button>
-          {isConnected && (<button onClick={() => navigate(ROUTES.ABOUT)}>About</button>)}
+          <Button variation="link" className="button" onClick={() => navigate(ROUTES.HOME)} >Home</Button>
+          {isConnected && (<Button variation="link" onClick={() => navigate(ROUTES.ABOUT)}>About</Button>)}
         </div >
         <div>
         </div>
         <div >
-          {isConnected && (<button onClick={handleLogout}>Logout</button>)}
+          {isConnected && (<Button variation="link" onClick={handleLogout}>Logout</Button>)}
         </div >
       </div>
     </>

@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { Button } from '@aws-amplify/ui-react';
 import { useNavigate } from 'react-router-dom';
 
 import ROUTES from '../constants/lib/routes';
@@ -50,7 +51,9 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                <button type="submit">Login</button>
+                <div>
+                    <Button variation='primary' type='submit'>Login</Button>
+                </div>
             </form>
             <div>
                 <p>Note: This is a static login form for demonstration purposes.</p>

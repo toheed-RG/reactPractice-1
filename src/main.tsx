@@ -1,4 +1,5 @@
 import { Provider } from 'react-redux';
+import '@aws-amplify/ui-react/styles.css';
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 

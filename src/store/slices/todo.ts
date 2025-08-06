@@ -1,21 +1,22 @@
+import { fetchTodos } from "../thunks/todo";
 import { createSlice } from "@reduxjs/toolkit";
+import { Todo } from "../../constants/lib/todo";
 
-const DEFAULT_STATE = {
-    todos: [
-        { id: 1, title: 'Learn React', desc: 'Study the basics of React' },
-        { id: 2, title: 'Build a Todo App', desc: 'Create a simple todo application' },
-        { id: 3, title: 'Learn Redux', desc: 'Understand state management with Redux' },
-        { id: 4, title: 'Explore TypeScript', desc: 'Get familiar with TypeScript features' }
-    ],
-    status: "idle",
+interface TodoState {
+    todos: Todo[],
+    status: 'idle' | 'loading' | 'succeeded' | 'failed';
+    error: string | null | undefined;
+}
+
+const InitialTodos: TodoState = {
+    todos: [],
+    status: 'idle',
     error: null
 }
 
-
-
 export const todoSlice = createSlice({
     name: 'todo',
-    initialState: DEFAULT_STATE,
+    initialState: InitialTodos,
     reducers: {
         addTodo: (state, action) => {
             state.todos.push(action.payload);
@@ -26,16 +27,24 @@ export const todoSlice = createSlice({
         clearTodos: (state) => {
             state.todos = [];
         },
-        setStatus: (state, action) => {
-            state.status = action.payload;
-        },
-        setError: (state, action) => {
-            state.error = action.payload;
-        }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchTodos.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(fetchTodos.fulfilled, (state, action) => {
+                state.todos = action.payload;
+                state.status = 'succeeded';
+            })
+            .addCase(fetchTodos.rejected, (state, action) => {
+                state.error = action.error.message;
+                state.status = 'failed';
+            });
     }
 })
 
 // exported both actions and reducers
-export const { addTodo, removeTodo, clearTodos, setStatus, setError } = todoSlice.actions;
+export const { addTodo, removeTodo, clearTodos } = todoSlice.actions;
 export const todoReducer = todoSlice.reducer;
-export const selectTodos = (state) => state.todos;
+export const selectTodos = (state: { todo: TodoState }) => state.todo.todos;
