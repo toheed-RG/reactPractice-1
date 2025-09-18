@@ -5,7 +5,7 @@ interface Props {
     text: string;
 }
 
-const Loading = (props: Props) => {
+const Loading = (props?: Props) => {
     return (
         <>
             <div>
@@ -14,7 +14,7 @@ const Loading = (props: Props) => {
                 }} size="large" />
             </div>
             <div>
-                <span>{props.text}</span>
+                <span>{props?.text}</span>
             </div>
         </>
     );
